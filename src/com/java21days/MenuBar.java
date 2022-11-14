@@ -11,7 +11,7 @@ public class MenuBar extends JFrame {
         JPanel panel = new JPanel();
         setSize(dim);
         JButton[] buttons = createButtons(options);
-
+        addButtons(panel, buttons);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -29,6 +29,12 @@ public class MenuBar extends JFrame {
         }
 
         return buttons;
+    }
+
+    void addButtons(JPanel panel, JButton[] buttons){
+        for(int i=0; i<buttons.length; i++){
+            panel.add(buttons[i]);
+        }
     }
 
 
