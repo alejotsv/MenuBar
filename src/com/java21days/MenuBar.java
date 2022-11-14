@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MenuBar extends JFrame {
-    Dimension dim = new Dimension(300, 300);
+    Dimension dim = new Dimension(600, 300);
 
     MenuBar(String title){
         super(title);
@@ -14,6 +14,9 @@ public class MenuBar extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-
+        add(panel);
     }
+
+
+
 }
