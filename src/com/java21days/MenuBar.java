@@ -19,7 +19,9 @@ public class MenuBar extends JFrame {
         panel.add(menuBar);
 
         JButton[] buttons = createButtons(options);
-        addButtons(panel, buttons);
+        JToolBar toolBar = new JToolBar();
+        addButtons(toolBar, buttons);
+        panel.add(toolBar);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -40,9 +42,9 @@ public class MenuBar extends JFrame {
         return buttons;
     }
 
-    void addButtons(JPanel panel, JButton[] buttons){
+    void addButtons(JToolBar toolBar, JButton[] buttons){
         for(int i=0; i<buttons.length; i++){
-            panel.add(buttons[i]);
+            toolBar.add(buttons[i]);
         }
     }
 
