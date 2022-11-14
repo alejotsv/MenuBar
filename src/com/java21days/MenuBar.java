@@ -10,6 +10,7 @@ public class MenuBar extends JFrame {
         super(title);
         JPanel panel = new JPanel();
         setSize(dim);
+        setLookAndFeel("Nimbus");
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Feed");
         JMenuItem[] menuItems = createMenuItems(options);
@@ -57,6 +58,19 @@ public class MenuBar extends JFrame {
     void addMenuItems(JMenu menu, JMenuItem[] menuItems){
         for(int i=0; i<menuItems.length; i++){
             menu.add(menuItems[i]);
+        }
+    }
+
+    void setLookAndFeel(String name){
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if (name.equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // If Nimbus is not available, you can set the GUI to another look and feel.
         }
     }
 }
