@@ -10,6 +10,13 @@ public class MenuBar extends JFrame {
         super(title);
         JPanel panel = new JPanel();
         setSize(dim);
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("Feed");
+        JMenuItem[] menuItems = createMenuItems(options);
+        addMenuItems(menu, menuItems);
+        menuBar.add(menu);
+        panel.add(menuBar);
+
         JButton[] buttons = createButtons(options);
         addButtons(panel, buttons);
 
@@ -17,6 +24,7 @@ public class MenuBar extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         add(panel);
+
     }
 
     JButton[] createButtons(String[] options){
@@ -37,5 +45,18 @@ public class MenuBar extends JFrame {
         }
     }
 
+    JMenuItem[] createMenuItems(String[] options){
+        JMenuItem[] menuItems = new JMenuItem[options.length];
+        for(int i=0; i<options.length; i++){
+            JMenuItem menuItem = new JMenuItem(options[i]);
+            menuItems[i] = menuItem;
+        }
+        return menuItems;
+    }
 
+    void addMenuItems(JMenu menu, JMenuItem[] menuItems){
+        for(int i=0; i<menuItems.length; i++){
+            menu.add(menuItems[i]);
+        }
+    }
 }
